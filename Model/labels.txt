@@ -1,0 +1,5 @@
+0 Hello
+1 How are you
+2 Fine
+3 Thank you 
+4 Yes
