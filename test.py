@@ -3,8 +3,6 @@ from cvzone.HandTrackingModule import HandDetector
 from cvzone.ClassificationModule import Classifier
 import numpy as np
 import math
-
-# Setup
 cap = cv2.VideoCapture(0)
 detector = HandDetector(maxHands=1)
 classifier = Classifier("Model/keras_model.h5", "Model/labels.txt")
@@ -24,11 +22,11 @@ while True:
         hand = hands[0]
         x, y, w, h = hand['bbox']
 
-        # Crop the hand region
+   
         imgWhite = np.ones((imgSize, imgSize, 3), np.uint8) * 255
         imgCrop = img[y-offset:y+h+offset, x-offset:x+w+offset]
 
-        # Resize to square input
+
         aspectRatio = h / w
         if aspectRatio > 1:
             k = imgSize / h
@@ -55,18 +53,18 @@ while True:
         padding_y = 20
         cv2.rectangle(
              imgOutput,
-             (x, y - text_height - padding_y),  # top-left corner
-              (x + text_width + padding_x, y),   # bottom-right corner
-              (0, 0, 0),                         # black background
-              -1                                # filled rectangle
+             (x, y - text_height - padding_y),  
+              (x + text_width + padding_x, y),   
+              (0, 0, 0),                         
+              -1                                
         )
         cv2.putText(
             imgOutput,
             text,
-            (x + 10, y - 10),                  # adjust text position inside box
+            (x + 10, y - 10),                  
              cv2.FONT_HERSHEY_SIMPLEX,
              font_scale,
-             (255, 255, 255),                  # white text
+             (255, 255, 255),                  
              font_thickness
         )
         cv2.rectangle(
