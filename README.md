@@ -45,8 +45,6 @@ This project also helped me:
 
 - Expand dataset for more gesture classes (A-Z or custom commands)
 - Add frame smoothing to stabilize predictions
-- Convert into a web-based Streamlit app (optional)
-- Port to mobile or embedded hardware (like Raspberry Pi)
 - Add guided training mode for users to record custom signs
 
 ---
